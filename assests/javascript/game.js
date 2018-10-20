@@ -1,17 +1,17 @@
 var villians = [
-    "Chucky",
-    "Freddy Krueger",
-    "Ghostface",
-    "Hannibal Lecter",
-    "Jason Vorhees",
-    "Leatherface",
-    "Michael Meyers",
-    "Pennywise",
-    "Pinhead",
-    "Pumpkinhead",
+    "CHUCKY",
+    "FREDDYKRUEGER",
+    "GHOSTFACE",
+    "HANNIBALLECTER",
+    "JASONVORHEES",
+    "LEATHERFACE",
+    "MICHAELMYERS",
+    "PENNYWISE",
+    "PINHEAD",
+    "PUMPKINHEAD",
 ];
 
-const maxTries = 12;
+const maxTries = 10;
 
 var guessedLetters = [];
 var currentWordIndex;
@@ -29,9 +29,9 @@ function resetGame() {
 
     guessingWord = [];
 
-    document.getElementById("hangmanImage").src = "";
+    document.getElementById("hangmanImage").src = "assests/images/rules.jpg";
 
-    for (var i = 0; i< villians[currentWordIndex].length; i++) {
+    for (var i = 0; i < villians[currentWordIndex].length; i++) {
         guessingWord.push("_");
     }
 
@@ -50,7 +50,7 @@ function updateDisplay() {
 
     var guessingWordText = "";
     for (var i = 0; i < guessingWord.length; i++) {
-        guessingWordText += guessingWord.length[i];
+        guessingWordText += guessingWord[i];
     }
 
     document.getElementById("currentWord").innerText = guessingWordText;
@@ -60,9 +60,9 @@ function updateDisplay() {
 };
 
 
-function updateHangmanImage() {
-    document.getElementById("hangmanImage").src = "assests/images" + (maxTries - remainingGuesses) + ".png";
-};
+// function updateHangmanImage() {
+//     document.getElementById("hangmanImage").src = "assests/images" + (maxTries - remainingGuesses) + ".png";
+// };
 
 
 function evaluateGuess(letter) {

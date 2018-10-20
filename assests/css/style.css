@@ -13,13 +13,22 @@ body {
     
 h1,h2,h3,
 h4,h5,h6 {
-    padding: 5px;
+    padding: 3px;
     background-color: rgba(252, 98, 9, 0.2);
 }
 
-#title-image, #gameover-image, #youwin-image{ 
+#title-image{
+    height: 215px;
+    width: 800px;
+    display:block;
+    margin: 0 auto;
+}
+
+#gameover-image, #youwin-image, #hangmanImage{ 
     display: block;
     margin: 0 auto;
+    width: 500px;
+    height: 400px;
 }
 
 #currentWord {
