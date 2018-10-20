@@ -75,7 +75,7 @@ function evaluateGuess(letter) {
 
     if(positions.length <= 0){
         remainingGuesses--;
-        updateHangmanImage();
+        // updatehangmanImage();
     }else{
         for(var i = 0; i< positions.length; i++) {
             guessingWord[positions[i]] = letter;
@@ -91,6 +91,7 @@ function checkWin() {
         document.getElementById("pressKeyTryAgain").style.cssText = "dislay: block";
         wins++;
         hasFinished = true;
+        alert("You got away from " + guessingWord + "!")
     }
 };
 
@@ -98,8 +99,9 @@ function checkWin() {
 function checkLoss() {
     if(remainingGuesses <= 0 ) {
         document.getElementById("gameover-image").style.cssText = "display: block";
-        document.getElementById("PressKeyTryAgain").style.cssText = "display: block";
+        document.getElementById("pressKeyTryAgain").style.cssText = "display: block";
         hasFinished = true;
+        alert("OH NO " + guessingWord + " caught you!")
     }
 };
 
