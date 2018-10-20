@@ -20,6 +20,10 @@ var remainingGuesses = 0;
 var hasFinished = false;
 var wins = 0;
 
+var gameSound = new Audio('./assests/sounds/theme.mp3')
+var loseSound = new Audio('./assests/sounds/lose.wav')
+var winSound = new Audio('./assests/sounds/win.wav')
+
 function resetGame() {
     remainingGuesses = maxTries;
 
@@ -29,7 +33,7 @@ function resetGame() {
 
     guessingWord = [];
 
-    document.getElementById("hangmanImage").src = "assests/images/rules.jpg";
+    document.getElementById("rulesImage").src = "assests/images/rules.jpg";
 
     for (var i = 0; i < villians[currentWordIndex].length; i++) {
         guessingWord.push("_");
@@ -40,7 +44,6 @@ function resetGame() {
     document.getElementById("youwin-image").style.cssText= "display: none";
 
     updateDisplay();
-
 };
 
 
@@ -56,13 +59,11 @@ function updateDisplay() {
     document.getElementById("currentWord").innerText = guessingWordText;
     document.getElementById("remainingGuesses").innerText = remainingGuesses;
     document.getElementById("guessedLetters").innerText = guessedLetters;
-
+    
 };
 
 
-// function updateHangmanImage() {
-//     document.getElementById("hangmanImage").src = "assests/images" + (maxTries - remainingGuesses) + ".png";
-// };
+
 
 
 function evaluateGuess(letter) {
@@ -75,7 +76,6 @@ function evaluateGuess(letter) {
 
     if(positions.length <= 0){
         remainingGuesses--;
-        // updatehangmanImage();
     }else{
         for(var i = 0; i< positions.length; i++) {
             guessingWord[positions[i]] = letter;
@@ -87,8 +87,10 @@ function evaluateGuess(letter) {
 
 function checkWin() {
     if(guessingWord.indexOf("_") === -1) {
+        winSound.play();
         document.getElementById("youwin-image").style.cssText = "display: block";
         document.getElementById("pressKeyTryAgain").style.cssText = "dislay: block";
+        document.getElementById("rulesImage").style.cssText= "display: none";
         wins++;
         hasFinished = true;
         alert("You got away from " + guessingWord + "!")
@@ -98,10 +100,13 @@ function checkWin() {
 
 function checkLoss() {
     if(remainingGuesses <= 0 ) {
+        loseSound.play();
         document.getElementById("gameover-image").style.cssText = "display: block";
         document.getElementById("pressKeyTryAgain").style.cssText = "display: block";
+        document.getElementById("rulesImage").style.cssText= "display: none";
         hasFinished = true;
-        alert("OH NO " + guessingWord + " caught you!")
+        // alert("OH NO " + guessingWord + " caught you!")
+
     }
 };
 
@@ -126,6 +131,8 @@ document.onkeydown = function(event) {
             updateDisplay();
             checkWin();
             checkLoss();
+            gameSound.play();
+
         }
     }
     
