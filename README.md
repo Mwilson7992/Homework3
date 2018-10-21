@@ -1,1 +1,1 @@
-# Homework3
+This is a Halloween themed guessing game where the answers are all horror movie villians. The game will auto generate one of the following options for you to guess when you start. Your choices are as follows, "CHUCKY","FREDDYKRUEGER","GHOSTFACE","HANNIBALLECTER","JASONVORHEES","LEATHERFACE","MICHAELMYERS","PENNYWISE","PINHEAD" "PUMPKINHEAD". You have only 10 wrong guesses before you're caught by the selected villian, but if you guess right you get away!
