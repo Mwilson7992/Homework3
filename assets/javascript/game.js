@@ -20,9 +20,9 @@ var remainingGuesses = 0;
 var hasFinished = false;
 var wins = 0;
 
-var gameSound = new Audio('./assests/sounds/theme.mp3')
-var loseSound = new Audio('./assests/sounds/lose.wav')
-var winSound = new Audio('./assests/sounds/win.wav')
+var gameSound = new Audio('./assets/sounds/theme.mp3')
+var loseSound = new Audio('./assets/sounds/lose.wav')
+var winSound = new Audio('./assets/sounds/win.wav')
 
 function resetGame() {
     remainingGuesses = maxTries;
@@ -33,7 +33,7 @@ function resetGame() {
 
     guessingWord = [];
 
-    document.getElementById("rulesImage").src = "assests/images/rules.jpg";
+    document.getElementById("rulesImage").src = "assets/images/rules.jpg";
 
     for (var i = 0; i < villians[currentWordIndex].length; i++) {
         guessingWord.push("_");
